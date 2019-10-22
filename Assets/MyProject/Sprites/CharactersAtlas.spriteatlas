@@ -31,14 +31,16 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 5c46fb5abd41a834a9cdb787983e5bc3, type: 3}
-    totalSpriteSurfaceArea: 287920
+    totalSpriteSurfaceArea: 292262
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: 39e65eb0fb52c7547b6ede4d7f345b3e, type: 3}
   - {fileID: 21300000, guid: e989c5480c82de0468d0502cbd435a74, type: 3}
   - {fileID: 21300000, guid: 6d95f46bf2a9d8d4298c752d51710cf7, type: 3}
   - {fileID: 21300000, guid: 46e2830e340032047a382c61e61bbed0, type: 3}
   m_PackedSpriteNamesToIndex:
+  - AttackBeam
   - BlueCannon
   - Fireball
   - AllyShip
