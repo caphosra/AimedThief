@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1482107390464888123}
   m_Layer: 9
   m_Name: Fireball
-  m_TagString: Fireball
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 6d95f46bf2a9d8d4298c752d51710cf7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -114,7 +114,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.05, y: 0}
@@ -129,8 +129,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3170238950993971605}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cea912bca8b10ba46b39b5905857b118, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ddedd1adc0eb9a4399b342321adf6f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  balletPoolName: FireBallsPool
-  lifeTime: 5
+  table: {fileID: 11400000, guid: a37b9e4968deb4a4b9727bf96b3a0c57, type: 2}
+  lifeTime: 3

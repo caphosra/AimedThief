@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6644301691074025258}
   m_Layer: 8
   m_Name: AttackBeam
-  m_TagString: Untagged
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 39e65eb0fb52c7547b6ede4d7f345b3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -114,7 +114,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -139,8 +139,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4282860043201239596}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cea912bca8b10ba46b39b5905857b118, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ddedd1adc0eb9a4399b342321adf6f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  balletPoolName: AttackBeamsPool
-  lifeTime: 5
+  table: {fileID: 11400000, guid: fd81e172aba4a304a86d56a9d85934b2, type: 2}
+  lifeTime: 3

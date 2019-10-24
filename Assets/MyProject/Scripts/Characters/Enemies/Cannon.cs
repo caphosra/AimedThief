@@ -3,36 +3,68 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-public class Cannon : MonoBehaviour
+public class Cannon : ActivatableObject
 {
     [SerializeField]
-    private Rigidbody2D body;
+    private EnemyController controller;
 
     [SerializeField]
-    private float speed;
+    private BulletStatusTable bullet;
 
-    // Start is called before the first frame update
-    void Start()
+    private const string PLAYERS_SHIP_NAME = "AllyShip";
+    private GameObject playerShip;
+    private ObjectPooling pool;
+
+    void Awake()
     {
-        
+        OnActive += OnActiveCallback;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        var velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        body.velocity = velocity.normalized * speed;
+        if(ActiveSelf)
+        {
+            if(playerShip.transform.position.x > transform.position.x)
+            {
+                var scale = transform.localScale;
+                scale.x = -1f;
+                transform.localScale = scale;
+            }
+            else
+            {
+                var scale = transform.localScale;
+                scale.x = 1f;
+                transform.localScale = scale;
+            }
+        }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnActiveCallback()
     {
-        if(collision.gameObject.tag == "Stage")
+        playerShip = GameObject.Find(PLAYERS_SHIP_NAME);
+        pool = bullet.GetBulletPool();
+
+        StartCoroutine(FireAndReload());
+    }
+
+    public void Fire()
+    {
+        if(playerShip.transform.position.y >= transform.position.y)
         {
-            Debug.Log("Oops, your ship is hitted.");
+            var obj = pool.GetObject();
+            obj.transform.position = transform.position;
+            var body = obj.GetComponent<Rigidbody2D>();
+            var vector = (playerShip.transform.position - transform.position).normalized;
+            body.velocity = vector * controller.Table.BulletSpeed;
         }
-        else if(collision.gameObject.tag == "Fireball")
+    }
+
+    private IEnumerator FireAndReload()
+    {
+        while(ActiveSelf)
         {
-            Debug.Log("Ow! A fireball is so hot!");
+            Fire();
+            yield return new WaitForSeconds(controller.Table.BulletInterval);
         }
     }
 }

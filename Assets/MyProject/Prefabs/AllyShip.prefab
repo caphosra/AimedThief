@@ -173,6 +173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dac46bf8753d404587647a188912048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  table: {fileID: 11400000, guid: 2cb448034280bb94bba8a51a37a59d0f, type: 2}
   body: {fileID: 7790926869367433121}
-  beamsPool: {fileID: 0}
-  speed: 5
+  beam: {fileID: 11400000, guid: fd81e172aba4a304a86d56a9d85934b2, type: 2}

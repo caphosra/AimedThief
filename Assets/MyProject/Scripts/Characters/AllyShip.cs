@@ -3,28 +3,31 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-public class AllyShip : MonoBehaviour
+public class AllyShip : MonoBehaviour, IHitPoint
 {
+    [SerializeField]
+    private CharacterStatusTable table;
+
     [SerializeField]
     private Rigidbody2D body;
 
     [SerializeField]
-    private ObjectPooling beamsPool;
+    private BulletStatusTable beam;
 
-    [SerializeField]
-    private float speed;
+    private int hp = 0;
+    public int HP { get => hp; }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        hp = table.HP;
     }
 
     // Update is called once per frame
     void Update()
     {
         var velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        body.velocity = velocity.normalized * speed;
+        body.velocity = velocity.normalized * table.MovementSpeed;
 
         if(Input.GetButtonDown("Fire")  && fireableFlag)
         {
@@ -39,25 +42,43 @@ public class AllyShip : MonoBehaviour
         {
             Debug.Log("Oops, your ship is hitted.");
         }
-        else if(collision.gameObject.tag == "Fireball")
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider.gameObject.tag == "EnemyBullet")
         {
-            Debug.Log("Ow! A fireball is so hot!");
+            var damage = collider.gameObject.GetComponent<BulletController>().Table.Damage;
+            Damage(damage);
+            collider.gameObject.SetActive(false);
         }
     }
 
     private bool fireableFlag = true;
     public void Fire()
-    {
-        var beam = beamsPool.GetObject();
-        beam.transform.position = transform.position;
-        beam.GetComponent<Rigidbody2D>().velocity = new Vector2(10f, 0f);
+    { 
+        var pool = beam.GetBulletPool();
+        var beamobj = pool.GetObject();
+        beamobj.transform.position = transform.position;
+        beamobj.GetComponent<Rigidbody2D>().velocity = Vector2.right * table.BulletSpeed;
 
         fireableFlag = false;
     }
 
     private IEnumerator ReloadBeam()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(table.BulletInterval);
         fireableFlag = true;
+    }
+
+    public void Damage(int damage)
+    {
+        Debug.Log($"{damage} damage received!");
+        hp -= damage;
+        if(hp <= 0)
+        {
+            Debug.Log("You are died...");
+            Destroy(gameObject);
+        }
     }
 }

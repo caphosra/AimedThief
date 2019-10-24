@@ -12,7 +12,10 @@ GameObject:
   - component: {fileID: -1947861677594662347}
   - component: {fileID: 3442243116917329558}
   - component: {fileID: -1824462592910591562}
-  m_Layer: 0
+  - component: {fileID: 5360950546344313347}
+  - component: {fileID: 2126915344642539118}
+  - component: {fileID: 7097334041177150853}
+  m_Layer: 9
   m_Name: BlueCannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,6 +96,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe2a61405ac2a58418439e530751295f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5360950546344313347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6224300377298401479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb8a0d279c82d1a46b23ed39b290819c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: 2126915344642539118}
+  - {fileID: 7097334041177150853}
+--- !u!114 &2126915344642539118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6224300377298401479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e34a46b4a1936499903f433a8d8bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  table: {fileID: 11400000, guid: 051e06c9d1383334c80de40100d44306, type: 2}
+--- !u!114 &7097334041177150853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6224300377298401479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62748bc3b32b3964eb808becbcb4656a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 2126915344642539118}
+  bullet: {fileID: 11400000, guid: a37b9e4968deb4a4b9727bf96b3a0c57, type: 2}
 --- !u!1 &6224300378327164716
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6224300378327164718}
   - component: {fileID: 6224300378327164717}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
