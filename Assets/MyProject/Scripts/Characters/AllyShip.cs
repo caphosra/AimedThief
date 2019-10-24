@@ -52,6 +52,11 @@ public class AllyShip : MonoBehaviour, IHitPoint
             Damage(damage);
             collider.gameObject.SetActive(false);
         }
+        else if(collider.gameObject.tag == "Enemy")
+        {
+            // Destroy
+            Damage(table.HP);
+        }
     }
 
     private bool fireableFlag = true;

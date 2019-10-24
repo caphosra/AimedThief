@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85facaae4a5a2ac4f8567b01d230c597, type: 3}
-  m_Name: AllyShip
+  m_Name: SharkShip
   m_EditorClassIdentifier: 
-  characterName: AllyShip
-  hp: 5
-  movementSpeed: 5
+  characterName: SharkShip
+  hp: 1
+  movementSpeed: 2
   doAttack: 1
-  bulletInterval: 0.1
-  bulletSpeed: 10
+  bulletInterval: 0
+  bulletSpeed: 0

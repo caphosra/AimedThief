@@ -29,10 +29,6 @@ public class CharacterStatusTable : ScriptableObject
     public bool DoAttack { get => doAttack; }
 
     [SerializeField]
-    private int damage;
-    public int Damage { get => damage; }
-
-    [SerializeField]
     private float bulletInterval;
     public float BulletInterval { get => bulletInterval; }
 
@@ -57,7 +53,6 @@ public class CharacterStatusTable : ScriptableObject
             {
                 EditorGUI.indentLevel++;
 
-                Target.damage = EditorGUILayout.IntSlider("Damage", Target.damage, 1, 100);
                 Target.bulletInterval = EditorGUILayout.FloatField("BulletInterval", Target.bulletInterval);
                 Target.bulletSpeed = EditorGUILayout.FloatField("BulletSpeed", Target.bulletSpeed);
 
