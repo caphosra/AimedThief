@@ -10,6 +10,12 @@ public interface IActivatableObject
 
 public class ActivatableObject : MonoBehaviour, IActivatableObject
 {
+    [SerializeField]
+    protected UnityEvent OnActive;
+
+    [SerializeField]
+    protected UnityEvent OnDeactive;
+
     public bool ActiveSelf { get; private set; }
 
     public void SetActive(bool activate)
@@ -25,7 +31,4 @@ public class ActivatableObject : MonoBehaviour, IActivatableObject
             OnDeactive.Invoke();
         }
     }
-
-    protected UnityEvent OnActive;
-    protected UnityEvent OnDeactive;
 }

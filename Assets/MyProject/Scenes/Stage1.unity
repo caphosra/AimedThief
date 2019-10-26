@@ -267,7 +267,7 @@ PrefabInstance:
     - target: {fileID: 3142736580421081328, guid: 04e1dbd5314e57940a7ad66008f1cc9d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3142736580421081328, guid: 04e1dbd5314e57940a7ad66008f1cc9d,
         type: 3}
@@ -319,6 +319,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3142736578983902590, guid: 04e1dbd5314e57940a7ad66008f1cc9d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04e1dbd5314e57940a7ad66008f1cc9d, type: 3}
 --- !u!4 &197039682 stripped
@@ -342,7 +347,7 @@ PrefabInstance:
     - target: {fileID: 3142736580421081328, guid: 04e1dbd5314e57940a7ad66008f1cc9d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3142736580421081328, guid: 04e1dbd5314e57940a7ad66008f1cc9d,
         type: 3}
@@ -493,6 +498,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 0.5
+  onGameStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &627860784
 PrefabInstance:
   m_ObjectHideFlags: 0

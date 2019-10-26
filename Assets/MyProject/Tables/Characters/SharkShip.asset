@@ -18,3 +18,4 @@ MonoBehaviour:
   doAttack: 1
   bulletInterval: 0
   bulletSpeed: 0
+  dieEffect: {fileID: 0}

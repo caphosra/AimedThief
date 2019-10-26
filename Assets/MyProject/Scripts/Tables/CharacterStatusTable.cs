@@ -36,6 +36,10 @@ public class CharacterStatusTable : ScriptableObject
     private float bulletSpeed;
     public float BulletSpeed { get => bulletSpeed; }
 
+    [SerializeField]
+    private GameObject dieEffect;
+    public GameObject DieEffect { get => dieEffect; }
+
 #if UNITY_EDITOR
 
     [CustomEditor(typeof(CharacterStatusTable))]
@@ -58,6 +62,7 @@ public class CharacterStatusTable : ScriptableObject
 
                 EditorGUI.indentLevel--;
             }
+            Target.dieEffect = EditorGUILayout.ObjectField(Target.dieEffect, typeof(GameObject), allowSceneObjects: false) as GameObject;
 
             EditorUtility.SetDirty(Target);
 

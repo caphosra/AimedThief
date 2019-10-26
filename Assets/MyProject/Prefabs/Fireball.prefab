@@ -132,5 +132,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ddedd1adc0eb9a4399b342321adf6f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnActive:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnDeactive:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   table: {fileID: 11400000, guid: a37b9e4968deb4a4b9727bf96b3a0c57, type: 2}
   lifeTime: 3

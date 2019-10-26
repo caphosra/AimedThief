@@ -175,4 +175,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   table: {fileID: 11400000, guid: 2cb448034280bb94bba8a51a37a59d0f, type: 2}
   body: {fileID: 7790926869367433121}
+  sprite: {fileID: 2780060785378702172}
   beam: {fileID: 11400000, guid: fd81e172aba4a304a86d56a9d85934b2, type: 2}

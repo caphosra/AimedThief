@@ -203,6 +203,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e34a46b4a1936499903f433a8d8bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnActive:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnDeactive:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   table: {fileID: 11400000, guid: 087810ef32eaed74ab8c9531cc59863b, type: 2}
 --- !u!114 &7062293570992938076
 MonoBehaviour:
@@ -216,5 +226,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d392b007cedcde48b1b1b2ca87dd873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnActive:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnDeactive:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   controller: {fileID: -807001031214468893}
   body: {fileID: 2114719274427458894}

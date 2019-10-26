@@ -16,6 +16,6 @@ MonoBehaviour:
   hp: 15
   movementSpeed: 0
   doAttack: 1
-  damage: 1
   bulletInterval: 1
   bulletSpeed: 3
+  dieEffect: {fileID: 0}

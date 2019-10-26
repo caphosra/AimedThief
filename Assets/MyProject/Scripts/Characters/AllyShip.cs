@@ -12,56 +12,75 @@ public class AllyShip : MonoBehaviour, IHitPoint
     private Rigidbody2D body;
 
     [SerializeField]
+    private SpriteRenderer sprite;
+
+    [SerializeField]
     private BulletStatusTable beam;
 
     private int hp = 0;
     public int HP { get => hp; }
 
+    public bool Alive { get; private set; } = true;
+
+    private GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
         hp = table.HP;
+
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        var velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        body.velocity = velocity.normalized * table.MovementSpeed;
-
-        if(Input.GetButtonDown("Fire")  && fireableFlag)
+        if (Alive)
         {
-            Fire();
-            StartCoroutine(ReloadBeam());
+            var velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            body.velocity = velocity.normalized * table.MovementSpeed;
+
+            if (Input.GetButtonDown("Fire") && fireableFlag)
+            {
+                Fire();
+                StartCoroutine(ReloadBeam());
+            }
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Stage")
+        if (Alive)
         {
-            Debug.Log("Oops, your ship is hitted.");
+            if (collision.gameObject.tag == "Stage")
+            {
+                Debug.Log("Oops, your ship is attacked.");
+                Damage(table.HP);
+            }
         }
     }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.gameObject.tag == "EnemyBullet")
+        if (Alive)
         {
-            var damage = collider.gameObject.GetComponent<BulletController>().Table.Damage;
-            Damage(damage);
-            collider.gameObject.SetActive(false);
-        }
-        else if(collider.gameObject.tag == "Enemy")
-        {
-            // Destroy
-            Damage(table.HP);
+            if (collider.gameObject.tag == "EnemyBullet")
+            {
+                var damage = collider.gameObject.GetComponent<BulletController>().Table.Damage;
+                Damage(damage);
+                collider.gameObject.SetActive(false);
+            }
+            else if (collider.gameObject.tag == "Enemy")
+            {
+                // Destroy
+                Damage(table.HP);
+            }
         }
     }
 
     private bool fireableFlag = true;
     public void Fire()
-    { 
+    {
         var pool = beam.GetBulletPool();
         var beamobj = pool.GetObject();
         beamobj.transform.position = transform.position;
@@ -78,12 +97,21 @@ public class AllyShip : MonoBehaviour, IHitPoint
 
     public void Damage(int damage)
     {
-        Debug.Log($"{damage} damage received!");
-        hp -= damage;
-        if(hp <= 0)
+        if(Alive)
         {
-            Debug.Log("You are died...");
-            Destroy(gameObject);
+            Debug.Log($"{damage} damage received!");
+            hp -= damage;
+            if (hp <= 0)
+            {
+                Debug.Log("You are died...");
+                gameManager.ChangeGameState(GameState.GAME_OVER);
+
+                var dieEffect =  Instantiate(table.DieEffect);
+                dieEffect.transform.position = transform.position;
+                sprite.enabled = false;
+
+                Alive = false;
+            }
         }
     }
 }

@@ -18,3 +18,5 @@ MonoBehaviour:
   doAttack: 1
   bulletInterval: 0.1
   bulletSpeed: 10
+  dieEffect: {fileID: 1777743124826580901, guid: 44f1205fe7d49d34390c80a61879ed99,
+    type: 3}
