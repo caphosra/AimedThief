@@ -13,7 +13,7 @@ public class SharkShip : ActivatableObject
 
     void Awake()
     {
-        OnActive += OnActiveCallback;
+        OnActive.AddListener(OnActiveCallback);
     }
 
     void OnActiveCallback()

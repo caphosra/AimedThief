@@ -17,7 +17,7 @@ public class Cannon : ActivatableObject
 
     void Awake()
     {
-        OnActive += OnActiveCallback;
+        OnActive.AddListener(OnActiveCallback);
     }
 
     void Update()

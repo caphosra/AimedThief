@@ -1,6 +1,5 @@
-using System;
-
 using UnityEngine;
+using UnityEngine.Events;
 
 public interface IActivatableObject
 {
@@ -18,15 +17,15 @@ public class ActivatableObject : MonoBehaviour, IActivatableObject
         if(activate && !ActiveSelf)
         {
             ActiveSelf = activate;
-            OnActive?.Invoke();
+            OnActive.Invoke();
         }
         else if(!activate && ActiveSelf)
         {
             ActiveSelf = activate;
-            OnDeactive?.Invoke();
+            OnDeactive.Invoke();
         }
     }
 
-    protected event Action OnActive;
-    protected event Action OnDeactive;
+    protected UnityEvent OnActive;
+    protected UnityEvent OnDeactive;
 }
