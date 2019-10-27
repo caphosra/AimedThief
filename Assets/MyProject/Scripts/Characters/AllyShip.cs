@@ -77,6 +77,11 @@ public class AllyShip : MonoBehaviour, IHitPoint
                 // Destroy
                 Damage(table.HP);
             }
+            else if (collider.gameObject.tag == "Goal")
+            {
+                gameManager.ChangeGameState(GameState.GO_TO_NEXTSTAGE);
+                Alive = false;
+            }
         }
     }
 
