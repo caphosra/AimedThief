@@ -25,6 +25,10 @@ public class CharacterStatusTable : ScriptableObject
     public float MovementSpeed { get => movementSpeed; }
 
     [SerializeField]
+    private int score;
+    public int Score { get => score; }
+
+    [SerializeField]
     private bool doAttack;
     public bool DoAttack { get => doAttack; }
 
@@ -52,6 +56,7 @@ public class CharacterStatusTable : ScriptableObject
             Target.characterName = EditorGUILayout.TextField("Name", Target.characterName);
             Target.hp = EditorGUILayout.IntSlider("HP", Target.hp, 1, 100);
             Target.movementSpeed = EditorGUILayout.FloatField("MovementSpeed", Target.movementSpeed);
+            Target.score = EditorGUILayout.IntField("Score", Target.score);
             Target.doAttack = EditorGUILayout.Toggle("DoAttack", Target.doAttack);
             if(Target.doAttack)
             {
@@ -62,7 +67,7 @@ public class CharacterStatusTable : ScriptableObject
 
                 EditorGUI.indentLevel--;
             }
-            Target.dieEffect = EditorGUILayout.ObjectField(Target.dieEffect, typeof(GameObject), allowSceneObjects: false) as GameObject;
+            Target.dieEffect = EditorGUILayout.ObjectField("DieEffect", Target.dieEffect, typeof(GameObject), allowSceneObjects: false) as GameObject;
 
             EditorUtility.SetDirty(Target);
 

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: SharkShip
   hp: 1
-  movementSpeed: 2
+  movementSpeed: 5
+  score: 100
   doAttack: 1
   bulletInterval: 0
   bulletSpeed: 0

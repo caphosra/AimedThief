@@ -36,6 +36,7 @@ public class EnemyController : ActivatableObject, IHitPoint
         if(hp <= 0)
         {
             Debug.Log($"{Table.CharacterName} was destoryed by the ship!");
+            ScoreDatabase.Score += table.Score;
             Destroy(gameObject);
         }
     }

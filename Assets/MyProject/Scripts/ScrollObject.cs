@@ -15,7 +15,7 @@ public class ScrollObject : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         body = GetComponent<Rigidbody2D>();
-        body.velocity = new Vector2(-gameManager.ScrollSpeed, 0f);
+        body.velocity = Vector2.left * gameManager.ScrollSpeed;
     }
 
     // Update is called once per frame

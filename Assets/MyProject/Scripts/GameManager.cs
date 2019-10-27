@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private float scrollSpeed = 0.5f;
+    private float scrollSpeed = 1.0f;
     public float ScrollSpeed { get => scrollSpeed; }
 
     [SerializeField]

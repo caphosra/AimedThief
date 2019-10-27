@@ -15,7 +15,8 @@ MonoBehaviour:
   characterName: BlueCannon
   hp: 15
   movementSpeed: 0
+  score: 200
   doAttack: 1
-  bulletInterval: 1
+  bulletInterval: 3
   bulletSpeed: 3
   dieEffect: {fileID: 0}

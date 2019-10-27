@@ -9,9 +9,6 @@ public class BulletController : ActivatableObject
     private BulletStatusTable table;
     public BulletStatusTable Table { get => table; }
 
-    [SerializeField]
-    private float lifeTime;
-
     Coroutine destoryMe;
 
     void OnEnable()
@@ -26,7 +23,7 @@ public class BulletController : ActivatableObject
 
     private IEnumerator DestroyMe(GameObject myself)
     {
-        yield return new WaitForSeconds(lifeTime);
+        yield return new WaitForSeconds(Table.LifeTime);
         
         myself.SetActive(false);
 

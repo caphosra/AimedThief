@@ -15,6 +15,10 @@ public class BulletStatusTable : ScriptableObject
     private int damage;
     public int Damage { get => damage; }
 
+    [SerializeField]
+    private float lifeTime;
+    public float LifeTime { get => lifeTime; }
+
     public ObjectPooling GetBulletPool()
     {
         var obj = GameObject.Find($"{bulletName}Pool");

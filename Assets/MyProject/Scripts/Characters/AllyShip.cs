@@ -20,6 +20,8 @@ public class AllyShip : MonoBehaviour, IHitPoint
     private int hp = 0;
     public int HP { get => hp; }
 
+    public int MaxHP { get => table.HP; }
+
     public bool Alive { get; private set; } = true;
 
     private GameManager gameManager;

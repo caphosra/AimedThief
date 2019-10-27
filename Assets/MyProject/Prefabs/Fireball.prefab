@@ -143,4 +143,4 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   table: {fileID: 11400000, guid: a37b9e4968deb4a4b9727bf96b3a0c57, type: 2}
-  lifeTime: 3
+  lifeTime: 5
