@@ -73,6 +73,8 @@ public class GameManager : MonoBehaviour
     {
         if(CurrentGameState == GameState.GO_TO_NEXTSTAGE)
         {
+            ScoreDatabase.Score += stageStatusTable.BonusScore;
+
             var stage = GameObject.Find("Stage").transform;
             var camera = GameObject.Find("Main Camera").transform;
             camera.SetParent(stage);

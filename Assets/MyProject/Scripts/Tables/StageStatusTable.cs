@@ -12,6 +12,10 @@ public class StageStatusTable : ScriptableObject
     public string NextStageSceneName => nextStageSceneName;
 
     [SerializeField]
+    private int bonusScore;
+    public int BonusScore => bonusScore;
+
+    [SerializeField]
     private float scrollSpeed;
     public float ScrollSpeed => scrollSpeed;
 }
