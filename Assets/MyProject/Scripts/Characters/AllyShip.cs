@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-public class AllyShip : MonoBehaviour, IHitPoint
+public class AllyShip : ActivatableObject, IHitPoint
 {
     [SerializeField]
     private CharacterStatusTable table;
@@ -22,8 +22,6 @@ public class AllyShip : MonoBehaviour, IHitPoint
 
     public int MaxHP { get => table.HP; }
 
-    public bool Alive { get; private set; } = true;
-
     private GameManager gameManager;
 
     // Start is called before the first frame update
@@ -32,12 +30,19 @@ public class AllyShip : MonoBehaviour, IHitPoint
         hp = table.HP;
 
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager.OnGameStateChanged.AddListener(() =>
+        {
+            if(gameManager.CurrentGameState == GameState.GAME_NOW)
+            {
+                SetActive(true);
+            }
+        });
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Alive)
+        if (ActiveSelf)
         {
             var velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
             body.velocity = velocity.normalized * table.MovementSpeed;
@@ -52,7 +57,7 @@ public class AllyShip : MonoBehaviour, IHitPoint
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (Alive)
+        if (ActiveSelf)
         {
             if (collision.gameObject.tag == "Stage")
             {
@@ -64,7 +69,7 @@ public class AllyShip : MonoBehaviour, IHitPoint
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (Alive)
+        if (ActiveSelf)
         {
             if (collider.gameObject.tag == "EnemyBullet")
             {
@@ -80,7 +85,7 @@ public class AllyShip : MonoBehaviour, IHitPoint
             else if (collider.gameObject.tag == "Goal")
             {
                 gameManager.ChangeGameState(GameState.GO_TO_NEXTSTAGE);
-                Alive = false;
+                SetActive(false);
             }
         }
     }
@@ -104,7 +109,7 @@ public class AllyShip : MonoBehaviour, IHitPoint
 
     public void Damage(int damage)
     {
-        if(Alive)
+        if(ActiveSelf)
         {
             Debug.Log($"{damage} damage received!");
             hp -= damage;
@@ -117,7 +122,7 @@ public class AllyShip : MonoBehaviour, IHitPoint
                 dieEffect.transform.position = transform.position;
                 sprite.enabled = false;
 
-                Alive = false;
+                SetActive(false);
             }
         }
     }

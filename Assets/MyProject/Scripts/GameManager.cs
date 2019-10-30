@@ -8,12 +8,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private float scrollSpeed;
-    public float ScrollSpeed { get => scrollSpeed; }
-
-    [SerializeField]
-    private string nextStageName;
-    public string NextStageName { get => nextStageName; }
+    private StageStatusTable stageStatusTable;
+    public StageStatusTable StageStatusTable => stageStatusTable;
 
     [SerializeField]
     private UnityEvent onGameStateChanged;
@@ -21,11 +17,13 @@ public class GameManager : MonoBehaviour
 
     public GameState CurrentGameState { get; private set; } = GameState.START;
 
+    private const float WAIT_FOR_NEXT_SCENE_TIME = 3f;
+
     // Start is called before the first frame update
     void Start()
     {
         OnGameStateChanged.AddListener(OnGameOverCallback);
-        OnGameStateChanged.AddListener(() => OnStageClearCallback(NextStageName));
+        OnGameStateChanged.AddListener(() => OnStageClearCallback(StageStatusTable.NextStageSceneName));
     }
 
     // Update is called once per frame
@@ -57,7 +55,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator GameOverTask()
     {
         StartCoroutine(GameOverSceneLoadTask());
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(WAIT_FOR_NEXT_SCENE_TIME);
         showGameOverSceneFlag = true;
     }
     private IEnumerator GameOverSceneLoadTask()
@@ -87,7 +85,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator StageClearTask(string nextStageName)
     {
         StartCoroutine(NextStageSceneLoadTask(nextStageName));
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(WAIT_FOR_NEXT_SCENE_TIME);
         showGameOverSceneFlag = true;
     }
     private IEnumerator NextStageSceneLoadTask(string nextStageName)
