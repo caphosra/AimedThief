@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Stage1
   m_EditorClassIdentifier: 
   stageName: Stage1
-  nextStageSceneName: GameOver
+  nextStageSceneName: GameClear
+  bonusScore: 1000
   scrollSpeed: 1
