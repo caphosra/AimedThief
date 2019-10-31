@@ -78,6 +78,8 @@ public class GameManager : MonoBehaviour
             var stage = GameObject.Find("Stage").transform;
             var camera = GameObject.Find("Main Camera").transform;
             camera.SetParent(stage);
+            var rightCollider = GameObject.Find("RightCollider");
+            rightCollider.SetActive(false);
 
             StartCoroutine(StageClearTask(nextStageName));
         }

@@ -79,8 +79,9 @@ public class AllyShip : ActivatableObject, IHitPoint
             }
             else if (collider.gameObject.tag == "Enemy")
             {
-                // Destroy
-                Damage(table.HP);
+                var controller = collider.gameObject.GetComponent<EnemyController>();
+                Damage(controller.Table.HitDamage);
+                Destroy(collider.gameObject);
             }
             else if (collider.gameObject.tag == "Goal")
             {

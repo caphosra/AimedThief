@@ -16,6 +16,7 @@ MonoBehaviour:
   hp: 15
   movementSpeed: 0
   score: 200
+  hitDamage: 10
   doAttack: 1
   bulletInterval: 3
   bulletSpeed: 3

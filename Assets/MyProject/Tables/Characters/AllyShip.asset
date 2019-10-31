@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: AllyShip
   m_EditorClassIdentifier: 
   characterName: AllyShip
-  hp: 5
+  hp: 10
   movementSpeed: 5
   score: 0
+  hitDamage: 0
   doAttack: 1
   bulletInterval: 0.1
   bulletSpeed: 50

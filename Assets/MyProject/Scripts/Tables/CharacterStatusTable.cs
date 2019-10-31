@@ -29,6 +29,10 @@ public class CharacterStatusTable : ScriptableObject
     public int Score { get => score; }
 
     [SerializeField]
+    private int hitDamage;
+    public int HitDamage { get => hitDamage; }
+
+    [SerializeField]
     private bool doAttack;
     public bool DoAttack { get => doAttack; }
 
@@ -57,6 +61,7 @@ public class CharacterStatusTable : ScriptableObject
             Target.hp = EditorGUILayout.IntSlider("HP", Target.hp, 1, 100);
             Target.movementSpeed = EditorGUILayout.FloatField("MovementSpeed", Target.movementSpeed);
             Target.score = EditorGUILayout.IntField("Score", Target.score);
+            Target.hitDamage = EditorGUILayout.IntField("HitDamage", Target.hitDamage);
             Target.doAttack = EditorGUILayout.Toggle("DoAttack", Target.doAttack);
             if(Target.doAttack)
             {
