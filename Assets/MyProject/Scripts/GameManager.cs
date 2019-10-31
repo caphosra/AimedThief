@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(NextStageSceneLoadTask(nextStageName));
         yield return new WaitForSeconds(WAIT_FOR_NEXT_SCENE_TIME);
-        showGameOverSceneFlag = true;
+        showNextStageSceneFlag = true;
     }
     private IEnumerator NextStageSceneLoadTask(string nextStageName)
     {
