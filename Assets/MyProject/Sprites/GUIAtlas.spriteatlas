@@ -29,14 +29,19 @@ SpriteAtlas:
       enableRotation: 1
       enableTightPacking: 1
     variantMultiplier: 1
-    packables: []
-    totalSpriteSurfaceArea: 0
+    packables:
+    - {fileID: 102900000, guid: 2e9a12af6f4f80f4582f72b432d6df59, type: 3}
+    totalSpriteSurfaceArea: 798026
     bindAsDefault: 1
     storedHash:
       serializedVersion: 2
-      Hash: a7e2bff3a241160f623c67a46df07c39
+      Hash: 324aa9f74ec6a6e7acef882ef751f2b3
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites: []
-  m_PackedSpriteNamesToIndex: []
+  m_PackedSprites:
+  - {fileID: 21300000, guid: ca3764b0d793cfd4e963d9de3033d9a7, type: 3}
+  - {fileID: 21300000, guid: 752f5c14fdaad2f449fd45525fb46bcd, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - HPBar
+  - Title
   m_Tag: GUIAtlas
   m_IsVariant: 0

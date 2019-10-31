@@ -126,13 +126,9 @@ MonoBehaviour:
   OnActive:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   OnDeactive:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   table: {fileID: 11400000, guid: 051e06c9d1383334c80de40100d44306, type: 2}
 --- !u!114 &7097334041177150853
 MonoBehaviour:
@@ -149,13 +145,9 @@ MonoBehaviour:
   OnActive:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   OnDeactive:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   controller: {fileID: 2126915344642539118}
   bullet: {fileID: 11400000, guid: a37b9e4968deb4a4b9727bf96b3a0c57, type: 2}
 --- !u!1 &6224300378327164716
