@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c09af7e8127cf8547b6b17eb404f2e30, type: 3}
-  m_Name: Stage1
+  m_Name: Stage2
   m_EditorClassIdentifier: 
-  stageName: Stage1
-  nextStageSceneName: Stage2
-  bonusScore: 1000
+  stageName: Stage2
+  nextStageSceneName: GameClear
+  bonusScore: 2000
   scrollSpeed: 1
