@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/MyProject/Scenes/Stage2.unity
     guid: 4a8965d1791db224db1d103a926d8dca
   - enabled: 1
+    path: Assets/MyProject/Scenes/Stage3.unity
+    guid: b66b2bb7ccf7c7749b10c966f87d9bff
+  - enabled: 1
     path: Assets/MyProject/Scenes/GameOver.unity
     guid: be7959e44c6644e49979b8c5bc9af2cb
   - enabled: 1
