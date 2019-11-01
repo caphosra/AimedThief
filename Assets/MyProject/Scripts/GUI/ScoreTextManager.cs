@@ -11,6 +11,7 @@ class ScoreTextManager : MonoBehaviour
     private void Start()
     {
         scoreText = GetComponent<Text>();
+        scoreText.text = string.Format("{0:0000000}", ScoreDatabase.Score);
         ScoreDatabase.OnScoreChanged.AddListener(OnScoreChangedCallback);
     }
 
