@@ -16,3 +16,4 @@ MonoBehaviour:
   nextStageSceneName: GameClear
   bonusScore: 2500
   scrollSpeed: 1
+  bgmClip: {fileID: 8300000, guid: 6faaa7e41c4ce2a40a3c998406f6536e, type: 3}

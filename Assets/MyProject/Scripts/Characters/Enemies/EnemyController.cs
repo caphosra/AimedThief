@@ -37,6 +37,7 @@ public class EnemyController : ActivatableObject, IHitPoint
         {
             Debug.Log($"{Table.CharacterName} was destoryed by the ship!");
             ScoreDatabase.Score += table.Score;
+            GameObject.FindObjectOfType<AudioSource>().PlayOneShot(Table.DieSound);
             Destroy(gameObject);
         }
     }

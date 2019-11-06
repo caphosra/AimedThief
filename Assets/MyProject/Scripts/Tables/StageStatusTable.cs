@@ -18,4 +18,8 @@ public class StageStatusTable : ScriptableObject
     [SerializeField]
     private float scrollSpeed;
     public float ScrollSpeed => scrollSpeed;
+
+    [SerializeField]
+    private AudioClip bgmClip;
+    public AudioClip BGMClip => bgmClip;
 }

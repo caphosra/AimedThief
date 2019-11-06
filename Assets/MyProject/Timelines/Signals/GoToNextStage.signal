@@ -9,11 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c09af7e8127cf8547b6b17eb404f2e30, type: 3}
-  m_Name: Stage2
+  m_Script: {fileID: 11500000, guid: d6fa2d92fc1b3f34da284357edf89c3b, type: 3}
+  m_Name: GoToNextStage
   m_EditorClassIdentifier: 
-  stageName: Stage2
-  nextStageSceneName: Stage3
-  bonusScore: 2000
-  scrollSpeed: 1
-  bgmClip: {fileID: 8300000, guid: 8a7072376595c714da75e14af064beca, type: 3}

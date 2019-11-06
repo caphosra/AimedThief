@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AudioSource))]
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
@@ -15,6 +17,9 @@ public class GameManager : MonoBehaviour
     private UnityEvent onGameStateChanged;
     public UnityEvent OnGameStateChanged { get => onGameStateChanged; }
 
+    [Header("Timelines"), SerializeField]
+    private PlayableDirector onPlayerDiedTimeline;
+
     public GameState CurrentGameState { get; private set; } = GameState.START;
 
     private const float WAIT_FOR_NEXT_SCENE_TIME = 3f;
@@ -22,8 +27,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        var source = GetComponent<AudioSource>();
+        source.clip = StageStatusTable.BGMClip;
+
         OnGameStateChanged.AddListener(OnGameOverCallback);
-        OnGameStateChanged.AddListener(() => OnStageClearCallback(StageStatusTable.NextStageSceneName));
+        OnGameStateChanged.AddListener(OnStageClearCallback);
     }
 
     // Update is called once per frame
@@ -43,37 +51,25 @@ public class GameManager : MonoBehaviour
         OnGameStateChanged.Invoke();
     }
 
+    private AsyncOperation loadNextStageTask;
+
     private void OnGameOverCallback()
     {
         if(CurrentGameState == GameState.GAME_OVER)
         {
-            StartCoroutine(GameOverTask());
+            onPlayerDiedTimeline.Play();
+
+            StartCoroutine(LoadNextScene("GameOver"));
         }
     }
 
-    private bool showGameOverSceneFlag = false;
-    private IEnumerator GameOverTask()
-    {
-        StartCoroutine(GameOverSceneLoadTask());
-        yield return new WaitForSeconds(WAIT_FOR_NEXT_SCENE_TIME);
-        showGameOverSceneFlag = true;
-    }
-    private IEnumerator GameOverSceneLoadTask()
-    {
-        var async = SceneManager.LoadSceneAsync("GameOver");
-        async.allowSceneActivation = false;
-        while(async.progress < 0.9f || !showGameOverSceneFlag)
-        {
-            yield return null;
-        }
-        async.allowSceneActivation = true;
-    }
-
-    private void OnStageClearCallback(string nextStageName)
+    private void OnStageClearCallback()
     {
         if(CurrentGameState == GameState.GO_TO_NEXTSTAGE)
         {
-            ScoreDatabase.Score += stageStatusTable.BonusScore;
+            ScoreDatabase.Score += StageStatusTable.BonusScore;
+
+            onPlayerDiedTimeline.Play();
 
             var stage = GameObject.Find("Stage").transform;
             var camera = GameObject.Find("Main Camera").transform;
@@ -81,26 +77,25 @@ public class GameManager : MonoBehaviour
             var rightCollider = GameObject.Find("RightCollider");
             rightCollider.SetActive(false);
 
-            StartCoroutine(StageClearTask(nextStageName));
+            StartCoroutine(LoadNextScene(StageStatusTable.NextStageSceneName));
         }
     }
 
-    private bool showNextStageSceneFlag = false;
-    private IEnumerator StageClearTask(string nextStageName)
+    bool goToNextStageFlag = false;
+    private IEnumerator LoadNextScene(string stageName)
     {
-        StartCoroutine(NextStageSceneLoadTask(nextStageName));
-        yield return new WaitForSeconds(WAIT_FOR_NEXT_SCENE_TIME);
-        showNextStageSceneFlag = true;
-    }
-    private IEnumerator NextStageSceneLoadTask(string nextStageName)
-    {
-        var async = SceneManager.LoadSceneAsync(nextStageName);
-        async.allowSceneActivation = false;
-        while(async.progress < 0.9f || !showNextStageSceneFlag)
+        loadNextStageTask = SceneManager.LoadSceneAsync(stageName);
+        loadNextStageTask.allowSceneActivation = false;
+        while(loadNextStageTask.progress < 0.9f || !goToNextStageFlag)
         {
             yield return null;
         }
-        async.allowSceneActivation = true;
+        loadNextStageTask.allowSceneActivation = true;
+    }
+
+    public void MoveToNextScene()
+    {
+        goToNextStageFlag = true;
     }
 }
 

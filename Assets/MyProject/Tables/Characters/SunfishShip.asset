@@ -21,3 +21,4 @@ MonoBehaviour:
   bulletInterval: 0
   bulletSpeed: 0
   dieEffect: {fileID: 0}
+  dieSound: {fileID: 8300000, guid: 08c717be0f92f06418e30b7aa4dff999, type: 3}

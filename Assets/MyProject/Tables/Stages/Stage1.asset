@@ -16,3 +16,4 @@ MonoBehaviour:
   nextStageSceneName: Stage2
   bonusScore: 1000
   scrollSpeed: 1
+  bgmClip: {fileID: 8300000, guid: 150d5bd80eca84343b19b3f79b065e33, type: 3}

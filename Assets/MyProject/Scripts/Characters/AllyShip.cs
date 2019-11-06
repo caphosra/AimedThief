@@ -112,6 +112,8 @@ public class AllyShip : ActivatableObject, IHitPoint
     {
         if(ActiveSelf)
         {
+            GameObject.FindObjectOfType<AudioSource>().PlayOneShot(table.DieSound);
+
             Debug.Log($"{damage} damage received!");
             hp -= damage;
             if (hp <= 0)
