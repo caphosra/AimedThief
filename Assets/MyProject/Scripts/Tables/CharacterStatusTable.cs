@@ -48,6 +48,10 @@ public class CharacterStatusTable : ScriptableObject
     private GameObject dieEffect;
     public GameObject DieEffect { get => dieEffect; }
 
+    [SerializeField]
+    private AudioClip dieSound;
+    public AudioClip DieSound => dieSound;
+
 #if UNITY_EDITOR
 
     [CustomEditor(typeof(CharacterStatusTable))]
@@ -73,6 +77,7 @@ public class CharacterStatusTable : ScriptableObject
                 EditorGUI.indentLevel--;
             }
             Target.dieEffect = EditorGUILayout.ObjectField("DieEffect", Target.dieEffect, typeof(GameObject), allowSceneObjects: false) as GameObject;
+            Target.dieSound = EditorGUILayout.ObjectField("DieSound", Target.dieSound, typeof(AudioClip), allowSceneObjects: false) as AudioClip;
 
             EditorUtility.SetDirty(Target);
 

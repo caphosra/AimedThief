@@ -22,3 +22,4 @@ MonoBehaviour:
   bulletSpeed: 50
   dieEffect: {fileID: 1777743124826580901, guid: 44f1205fe7d49d34390c80a61879ed99,
     type: 3}
+  dieSound: {fileID: 8300000, guid: b2dcd881f3838a54eb4e4c6f1a74492b, type: 3}
