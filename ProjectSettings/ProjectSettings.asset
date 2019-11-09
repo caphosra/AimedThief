@@ -620,10 +620,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 873615ff-282d-4a84-8532-ee455ead6ad6
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: AimedThief
+  organizationId: capra314cabra
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
