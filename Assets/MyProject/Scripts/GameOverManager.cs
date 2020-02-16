@@ -2,6 +2,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
@@ -30,5 +31,13 @@ public class GameOverManager : MonoBehaviour
         }
 
         ScoreDatabase.Initialize();
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Fire"))
+        {
+            SceneManager.LoadScene("Title");
+        }
     }
 }
